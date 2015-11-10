@@ -28,7 +28,7 @@ class exports.shortQuery
       cb(i, b)
     return
 exports.$$ = shortQuery
-exports.$_ = shortQuery.create
+exports.$__ = shortQuery.create
 
 ###
   DOM Extention
