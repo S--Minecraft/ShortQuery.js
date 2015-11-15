@@ -1,0 +1,28 @@
+{
+  "name": "ShortQuery.js",
+  "version": "0.0.1-alpha",
+  "description": "Just a bundle of short-hand of vanilla js.",
+  "main": "bin/shortQuery.js",
+  "scripts": {
+    "compile": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/S--Minecraft/ShortQuery.js.git"
+  },
+  "author": "S <S@mail.minecraft.jp.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/S--Minecraft/ShortQuery.js/issues"
+  },
+  "homepage": "https://github.com/S--Minecraft/ShortQuery.js",
+  "devDependencies": {
+    "coffee-script": "1.9.x",
+    "del": "*",
+    "gulp": "3.9.x",
+    "gulp-notify": "*",
+    "gulp-plumber": "*",
+    "gulp-concat": "*",
+    "gulp-coffee": "*"
+  }
+}
