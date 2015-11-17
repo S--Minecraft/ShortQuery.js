@@ -11,6 +11,7 @@ packageJson = require "./package.json"
 banner = [
   "/*!"
   " * <%= packageJson.name %> v<%= packageJson.version %>  <%= packageJson.license %> License"
+  " * (C) 2015 <%= packageJson.authorName %>"
   " */"
 ].join "\n"
 src = "./src"
