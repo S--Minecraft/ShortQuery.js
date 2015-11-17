@@ -1,5 +1,6 @@
 gulp = require "gulp"
 del = require "del"
+header = require "gulp-header"
 notify = require "gulp-notify"
 plumber = require "gulp-plumber"
 concat = require "gulp-concat"
@@ -12,7 +13,7 @@ bin = "./bin"
 gulp.task "coffee", ->
   return gulp.src("#{src}/**/*.coffee")
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
-    .pipe(coffee({bare: true}))
+    .pipe(coffee())
     .pipe(concat("shortQuery.js"))
     .pipe(uglify())
     .pipe(gulp.dest(bin))
