@@ -2,6 +2,12 @@
   DOM Extention
 ###
 ele = HTMLElement ? Element
+
+for key of ele::
+  if key is "classList"
+    hasClassList = true
+
+
 # child node search
 ele::childClass = ele::getElementsByClassName
 ele::childTag = ele::getElementsByTagName
@@ -32,7 +38,10 @@ ele::rmvAttr = ele::removeAttr
 ele::attr = (a, b) ->
   return if b? then @setAttr(a, b) else @getAttr(a)
 ele::getClass = ->
-  return @classList
+  if hasClassList
+    return @classList
+  else
+    return @className.split(" ")
 ele::setClass = (a) ->
   if a instanceof Array
     return @className = a.join(" ")
@@ -42,12 +51,29 @@ ele::setClass = (a) ->
 ele::class = (a) ->
   return if a? then @setClass(a) else @getClass()
 # extention
-# IE8以下では動かない
 ele::addClass = (a) ->
-  return @classList.add(a)
+  if hasClassList
+    return @classList.add(a)
+  else
+    if not @hasClass(a)
+      @className += " " + a
+    return @className.split(" ")
 ele::removeClass = (a) ->
-  return @classList.remove(a)
+  if hasClassList
+    return @classList.remove(a)
+  else
+    @className = @className.replace(///^#{a}$|#{a}\ |\ #{a}///, "", "g")
+    return @className
 ele::toggleClass = (a) ->
-  return @classList.toggle(a)
+  if hasClassList
+    return @classList.toggle(a)
+  else
+    if @hasClass(a)
+      return @removeClass(a)
+    else
+      return @addClass(a)
 ele::hasClass = (a) ->
-  return @classList.contains(a)
+  if hasClassList
+    return @classList.contains(a)
+  else
+    return @className.search(///^#{a}$|#{a}\ |\ #{a}///) isnt -1
