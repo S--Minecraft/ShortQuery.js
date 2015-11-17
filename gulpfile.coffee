@@ -7,6 +7,12 @@ concat = require "gulp-concat"
 coffee = require "gulp-coffee"
 uglify = require "gulp-uglify"
 
+packageJson = require "./package.json"
+banner = [
+  "/*!"
+  " * <%= packageJson.name %> v<%= packageJson.version %>  <%= packageJson.license %> License"
+  " */"
+].join "\n"
 src = "./src"
 bin = "./bin"
 
@@ -15,7 +21,8 @@ gulp.task "coffee", ->
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
     .pipe(coffee())
     .pipe(concat("shortQuery.js"))
-    .pipe(uglify())
+    .pipe(uglify({preserveComments:"license"}))
+    .pipe(header(banner, {packageJson: packageJson}))
     .pipe(gulp.dest(bin))
 
 gulp.task "default", ["coffee"]
