@@ -4,6 +4,7 @@ header = require "gulp-header"
 notify = require "gulp-notify"
 plumber = require "gulp-plumber"
 concat = require "gulp-concat"
+rename = require "gulp-rename"
 coffee = require "gulp-coffee"
 uglify = require "gulp-uglify"
 
@@ -22,8 +23,10 @@ gulp.task "coffee", ->
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
     .pipe(coffee())
     .pipe(concat("shortQuery.js"))
-    .pipe(uglify({preserveComments:"license"}))
     .pipe(header(banner, {packageJson: packageJson}))
+    .pipe(gulp.dest(bin))
+    .pipe(uglify({preserveComments:"license"}))
+    .pipe(rename({extname: ".min.js"}))
     .pipe(gulp.dest(bin))
 
 gulp.task "default", ["coffee"]

@@ -21,9 +21,12 @@
     "coffee-script": "1.9.x",
     "del": "*",
     "gulp": "3.9.x",
+    "gulp-header": "*",
     "gulp-notify": "*",
     "gulp-plumber": "*",
     "gulp-concat": "*",
-    "gulp-coffee": "*"
+    "gulp-rename": "*",
+    "gulp-coffee": "*",
+    "gulp-uglify": "*"
   }
 }
