@@ -137,6 +137,22 @@
 
 }).call(this);
 
+
+/*
+  Event
+ */
+
+(function() {
+  var e;
+
+  e = EventTarget;
+
+  e.prototype.on = e.prototype.addEventListener;
+
+  e.prototype.off = e.prototype.removeEventListener;
+
+}).call(this);
+
 (function() {
   var d, exports;
 
