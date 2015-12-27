@@ -25,7 +25,7 @@ class exports.shortQuery
   @each: (a, cb) ->
     a = Array.apply(null, a)
     for b, i in a
-      cb(i, b)
+      cb(b, i)
     return
 exports.$$ = shortQuery
 exports.$__ = shortQuery.create

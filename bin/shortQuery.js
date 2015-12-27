@@ -185,7 +185,7 @@
       a = Array.apply(null, a);
       for (i = j = 0, len = a.length; j < len; i = ++j) {
         b = a[i];
-        cb(i, b);
+        cb(b, i);
       }
     };
 
