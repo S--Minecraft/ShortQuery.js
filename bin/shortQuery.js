@@ -7,6 +7,42 @@
  */
 
 (function() {
+  var d;
+
+  d = Document;
+
+  d.prototype.id = d.prototype.getElementById;
+
+  d.prototype["class"] = d.prototype.getElementsByClassName;
+
+  d.prototype.tag = d.prototype.getElementsByTagName;
+
+  d.prototype.query = d.prototype.querySelector;
+
+  d.prototype.queryAll = d.prototype.querySelectorAll;
+
+  d.prototype.I = d.prototype.id;
+
+  d.prototype.C = d.prototype["class"];
+
+  d.prototype.T = d.prototype.tag;
+
+  d.prototype.$ = d.prototype.query;
+
+  d.prototype.$$ = d.prototype.queryAll;
+
+  d.prototype.create = d.prototype.createElement;
+
+  d.prototype.$__ = d.prototype.create;
+
+}).call(this);
+
+
+/*
+  DOM Extention
+ */
+
+(function() {
   var ele, hasClassList, key;
 
   ele = typeof HTMLElement !== "undefined" && HTMLElement !== null ? HTMLElement : Element;
