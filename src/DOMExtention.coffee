@@ -65,13 +65,10 @@ ele::removeClass = (a) ->
     @className = @className.replace(///^#{a}$|#{a}\ |\ #{a}///, "", "g")
     return @className
 ele::toggleClass = (a) ->
-  if hasClassList
-    return @classList.toggle(a)
+  if @hasClass(a)
+    return @removeClass(a)
   else
-    if @hasClass(a)
-      return @removeClass(a)
-    else
-      return @addClass(a)
+    return @addClass(a)
 ele::hasClass = (a) ->
   if hasClassList
     return @classList.contains(a)
