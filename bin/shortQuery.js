@@ -1,5 +1,5 @@
 /*!
- * ShortQuery.js v0.0.1  MIT License
+ * ShortQuery.js v0.1.1  MIT License
  * (C) 2015 S <https://github.com/S--Minecraft>
  */
 /*
@@ -152,14 +152,10 @@
   };
 
   ele.prototype.toggleClass = function(a) {
-    if (hasClassList) {
-      return this.classList.toggle(a);
+    if (this.hasClass(a)) {
+      return this.removeClass(a);
     } else {
-      if (this.hasClass(a)) {
-        return this.removeClass(a);
-      } else {
-        return this.addClass(a);
-      }
+      return this.addClass(a);
     }
   };
 
