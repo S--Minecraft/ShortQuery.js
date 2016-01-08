@@ -45,7 +45,7 @@
 (function() {
   var ele, hasClassList, key;
 
-  ele = typeof HTMLElement !== "undefined" && HTMLElement !== null ? HTMLElement : Element;
+  ele = typeof Element !== "undefined" && Element !== null ? Element : HTMLElement;
 
   for (key in ele.prototype) {
     if (key === "classList") {
@@ -177,11 +177,21 @@
 (function() {
   var e;
 
-  e = EventTarget;
-
-  e.prototype.on = e.prototype.addEventListener;
-
-  e.prototype.off = e.prototype.removeEventListener;
+  if (typeof EventTarget !== "undefined" && EventTarget !== null) {
+    e = EventTarget;
+    e.prototype.on = e.prototype.addEventListener;
+    e.prototype.off = e.prototype.removeEventListener;
+  } else {
+    e = Window;
+    e.prototype.on = e.prototype.addEventListener;
+    e.prototype.off = e.prototype.removeEventListener;
+    e = Document;
+    e.prototype.on = e.prototype.addEventListener;
+    e.prototype.off = e.prototype.removeEventListener;
+    e = Element;
+    e.prototype.on = e.prototype.addEventListener;
+    e.prototype.off = e.prototype.removeEventListener;
+  }
 
 }).call(this);
 
