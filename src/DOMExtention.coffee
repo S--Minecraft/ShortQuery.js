@@ -1,7 +1,7 @@
 ###
   DOM Extention
 ###
-ele = Element ? HTMLElement
+ele = HTMLElement ? Element
 
 for key of ele::
   if key is "classList"

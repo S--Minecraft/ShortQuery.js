@@ -1,5 +1,5 @@
 /*!
- * ShortQuery.js v0.1.2  MIT License
+ * ShortQuery.js v0.1.4  MIT License
  * (C) 2015 S <https://github.com/S--Minecraft>
  */
 /*
@@ -45,7 +45,7 @@
 (function() {
   var ele, hasClassList, key;
 
-  ele = typeof Element !== "undefined" && Element !== null ? Element : HTMLElement;
+  ele = typeof HTMLElement !== "undefined" && HTMLElement !== null ? HTMLElement : Element;
 
   for (key in ele.prototype) {
     if (key === "classList") {
