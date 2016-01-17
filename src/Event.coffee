@@ -6,12 +6,7 @@ if EventTarget?
   e::on = e::addEventListener
   e::off = e::removeEventListener
 else
-  e = Window
-  e::on = e::addEventListener
-  e::off = e::removeEventListener
-  e = Document
-  e::on = e::addEventListener
-  e::off = e::removeEventListener
-  e = Element
-  e::on = e::addEventListener
-  e::off = e::removeEventListener
+  eventTarget = [Window, Document, Element, XMLHttpRequest]
+  for e in eventTarget
+    e::on = e::addEventListener
+    e::off = e::removeEventListener

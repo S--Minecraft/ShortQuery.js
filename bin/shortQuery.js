@@ -175,22 +175,19 @@
  */
 
 (function() {
-  var e;
+  var e, eventTarget, i, len;
 
   if (typeof EventTarget !== "undefined" && EventTarget !== null) {
     e = EventTarget;
     e.prototype.on = e.prototype.addEventListener;
     e.prototype.off = e.prototype.removeEventListener;
   } else {
-    e = Window;
-    e.prototype.on = e.prototype.addEventListener;
-    e.prototype.off = e.prototype.removeEventListener;
-    e = Document;
-    e.prototype.on = e.prototype.addEventListener;
-    e.prototype.off = e.prototype.removeEventListener;
-    e = Element;
-    e.prototype.on = e.prototype.addEventListener;
-    e.prototype.off = e.prototype.removeEventListener;
+    eventTarget = [Window, Document, Element, XMLHttpRequest];
+    for (i = 0, len = eventTarget.length; i < len; i++) {
+      e = eventTarget[i];
+      e.prototype.on = e.prototype.addEventListener;
+      e.prototype.off = e.prototype.removeEventListener;
+    }
   }
 
 }).call(this);
