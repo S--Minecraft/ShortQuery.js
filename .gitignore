@@ -1,7 +1,9 @@
 /node_modules/
 /bin/
 /src/
+/test/
 /bower.json
 /package.json
 /gulpfile.coffee
-/licence
+/LICENSE
+/README.md
