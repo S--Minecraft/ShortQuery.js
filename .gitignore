@@ -1,0 +1,7 @@
+/node_modules/
+/bin/
+/src/
+/bower.json
+/package.json
+/gulpfile.coffee
+/licence
