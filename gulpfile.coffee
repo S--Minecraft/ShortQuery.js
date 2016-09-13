@@ -16,10 +16,10 @@ banner =
    * (C) 2015 <%= packageJson.authorName %>
    */
   """
-banner-chrome =
+bannerChrome =
   """
   /*!
-   * <%= packageJson["name-chrome"] %> v<%= packageJson["version-chrome"] %>  <%= packageJson.license %> License
+   * <%= packageJson.name %> v<%= packageJson["version-chrome"] %>  <%= packageJson.license %> License
    * (C) 2015 <%= packageJson.authorName %>
    */
   """
@@ -43,7 +43,7 @@ gulp.task "chrome-coffee", ->
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
     .pipe(coffee())
     .pipe(concat("shortQuery.chrome.js"))
-    .pipe(header(banner, {packageJson: packageJson}))
+    .pipe(header(bannerChrome, {packageJson: packageJson}))
     .pipe(gulp.dest(bin))
     .pipe(uglify({preserveComments:"license"}))
     .pipe(rename({extname: ".min.js"}))
