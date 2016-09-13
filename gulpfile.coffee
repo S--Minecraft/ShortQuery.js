@@ -19,7 +19,7 @@ banner =
 banner-chrome =
   """
   /*!
-   * <%= packageJson.name %> v<%= packageJson["version-chrome"] %>  <%= packageJson.license %> License
+   * <%= packageJson["name-chrome"] %> v<%= packageJson["version-chrome"] %>  <%= packageJson.license %> License
    * (C) 2015 <%= packageJson.authorName %>
    */
   """
