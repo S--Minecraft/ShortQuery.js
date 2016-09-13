@@ -1,7 +1,7 @@
 {
   "name": "ShortQuery.js",
-  "version": "0.1.4",
-  "version-chrome": "0.1.4-chrome",
+  "version": "0.1.5",
+  "version-chrome": "0.1.5-chrome",
   "description": "Just a bundle of short-hand of vanilla js.",
   "main": "bin/shortQuery.js",
   "scripts": {
