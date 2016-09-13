@@ -1,5 +1,5 @@
 /*!
- * ShortQuery.js v0.1.5-chrome  MIT License
+ * ShortQuery.js v0.1.6-chrome  MIT License
  * (C) 2015 S <https://github.com/S--Minecraft>
  */
 /*
@@ -101,7 +101,9 @@
     }
   };
 
-  ele.prototype.getClass = ele.prototype.classList;
+  ele.prototype.getClass = function() {
+    return this.classList;
+  };
 
   ele.prototype.setClass = function(a) {
     if (Array.isArray(a)) {
@@ -121,13 +123,21 @@
     }
   };
 
-  ele.prototype.addClass = ele.prototype.classList.add;
+  ele.prototype.addClass = function(a) {
+    return this.classList.add(a);
+  };
 
-  ele.prototype.removeClass = ele.prototype.classList.remove;
+  ele.prototype.removeClass = function(a) {
+    return this.classList.remove(a);
+  };
 
-  ele.prototype.toggleClass = ele.prototype.classList.toggle;
+  ele.prototype.toggleClass = function(a) {
+    return this.classList.toggle(a);
+  };
 
-  ele.prototype.hasClass = ele.prototype.classList.contains;
+  ele.prototype.hasClass = function(a) {
+    return this.classList.contains(a);
+  };
 
 }).call(this);
 
