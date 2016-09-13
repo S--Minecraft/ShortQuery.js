@@ -32,7 +32,8 @@ ele::removeAttr = ele::removeAttribute
 ele::rmvAttr = ele::removeAttr
 ele::attr = (a, b) ->
   return if b? then @setAttr(a, b) else @getAttr(a)
-ele::getClass = ele::classList
+ele::getClass = ->
+  return @classList
 ele::setClass = (a) ->
   if Array.isArray(a)
     @className = a.join(" ")
@@ -44,7 +45,11 @@ ele::setClass = (a) ->
 ele::class = (a) ->
   return if a? then @setClass(a) else @getClass()
 # extention
-ele::addClass = ele::classList.add
-ele::removeClass = ele::classList.remove
-ele::toggleClass = ele::classList.toggle
-ele::hasClass = ele::classList.contains
+ele::addClass = (a) ->
+  return @classList.add(a)
+ele::removeClass = (a) ->
+  return @classList.remove(a)
+ele::toggleClass = (a) ->
+  return @classList.toggle(a)
+ele::hasClass = (a) ->
+  return @classList.contains(a)
