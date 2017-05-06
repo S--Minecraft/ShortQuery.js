@@ -23,8 +23,8 @@ ele::addAfter = (a) ->
 ele::remove = ->
   return @parentNode.removeChild(@)
 ele::removeChildren = ->
-  @element.textContent = null
-  return
+  @textContent = null
+  return @
 # get/set node
 ele::getAttr = ele::getAttribute
 ele::setAttr = ele::setAttribute
