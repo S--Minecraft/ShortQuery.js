@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/S--Minecraft/ShortQuery.js",
   "devDependencies": {
-    "coffee-script": "1.9.x",
+    "coffee-script": "1.10.x",
     "del": "*",
     "gulp": "3.9.x",
     "gulp-header": "*",
