@@ -46,10 +46,13 @@ ele::class = (a) ->
   return if a? then @setClass(a) else @getClass()
 # extention
 ele::addClass = (a) ->
-  return @classList.add(a)
+  @classList.add(a)
+  return @classList
 ele::removeClass = (a) ->
-  return @classList.remove(a)
+  @classList.remove(a)
+  return @classList
 ele::toggleClass = (a) ->
-  return @classList.toggle(a)
+  @classList.toggle(a)
+  return @classList
 ele::hasClass = (a) ->
   return @classList.contains(a)

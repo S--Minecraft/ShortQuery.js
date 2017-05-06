@@ -3,11 +3,6 @@
 ###
 ele = HTMLElement ? Element
 
-for key of ele::
-  if key is "classList"
-    hasClassList = true
-
-
 # child node search
 ele::childClass = ele::getElementsByClassName
 ele::childTag = ele::getElementsByTagName
@@ -38,39 +33,26 @@ ele::rmvAttr = ele::removeAttr
 ele::attr = (a, b) ->
   return if b? then @setAttr(a, b) else @getAttr(a)
 ele::getClass = ->
-  if hasClassList
-    return @classList
-  else
-    return @className.split(" ")
+  return @classList
 ele::setClass = (a) ->
-  if a instanceof Array
-    return @className = a.join(" ")
+  if Array.isArray(a)
+    @className = a.join(" ")
+    return @classList
   else if a?
-    return @className = a
+    @className = a
+    return @classList
   return
 ele::class = (a) ->
   return if a? then @setClass(a) else @getClass()
 # extention
 ele::addClass = (a) ->
-  if hasClassList
-    return @classList.add(a)
-  else
-    if not @hasClass(a)
-      @className += " " + a
-    return @className.split(" ")
+  @classList.add(a)
+  return @classList
 ele::removeClass = (a) ->
-  if hasClassList
-    return @classList.remove(a)
-  else
-    @className = @className.replace(///^#{a}$|#{a}\ |\ #{a}///, "", "g")
-    return @className
+  @classList.remove(a)
+  return @classList
 ele::toggleClass = (a) ->
-  if @hasClass(a)
-    return @removeClass(a)
-  else
-    return @addClass(a)
+  @classList.toggle(a)
+  return @classList
 ele::hasClass = (a) ->
-  if hasClassList
-    return @classList.contains(a)
-  else
-    return @className.search(///^#{a}$|#{a}\ |\ #{a}///) isnt -1
+  return @classList.contains(a)
