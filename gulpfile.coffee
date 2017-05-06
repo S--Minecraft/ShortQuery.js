@@ -29,7 +29,7 @@ bin = "./bin"
 
 gulp.task "coffee", ->
   return gulp.src("#{src}/**/*.coffee")
-    .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+    .pipe(plumber({errorHandler: notify.onError("Error: <%= error.toString() %>")}))
     .pipe(coffee())
     .pipe(concat("shortQuery.js"))
     .pipe(header(banner, {packageJson: packageJson}))
@@ -40,7 +40,7 @@ gulp.task "coffee", ->
 
 gulp.task "chrome-coffee", ->
   return gulp.src("#{srcchrome}/**/*.coffee")
-    .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+    .pipe(plumber({errorHandler: notify.onError("Error: <%= error.toString() %>")}))
     .pipe(coffee())
     .pipe(concat("shortQuery.chrome.js"))
     .pipe(header(bannerChrome, {packageJson: packageJson}))
