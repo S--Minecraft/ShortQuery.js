@@ -1,5 +1,5 @@
 /*!
- * ShortQuery.js v0.1.6  MIT License
+ * ShortQuery.js v0.1.7  MIT License
  * (C) 2015 S <https://github.com/S--Minecraft>
  */
 /*
@@ -43,15 +43,9 @@
  */
 
 (function() {
-  var ele, hasClassList, key;
+  var ele;
 
   ele = typeof HTMLElement !== "undefined" && HTMLElement !== null ? HTMLElement : Element;
-
-  for (key in ele.prototype) {
-    if (key === "classList") {
-      hasClassList = true;
-    }
-  }
 
   ele.prototype.childClass = ele.prototype.getElementsByClassName;
 
@@ -88,7 +82,8 @@
   };
 
   ele.prototype.removeChildren = function() {
-    this.element.textContent = null;
+    this.textContent = null;
+    return this;
   };
 
   ele.prototype.getAttr = ele.prototype.getAttribute;
@@ -108,18 +103,16 @@
   };
 
   ele.prototype.getClass = function() {
-    if (hasClassList) {
-      return this.classList;
-    } else {
-      return this.className.split(" ");
-    }
+    return this.classList;
   };
 
   ele.prototype.setClass = function(a) {
-    if (a instanceof Array) {
-      return this.className = a.join(" ");
+    if (Array.isArray(a)) {
+      this.className = a.join(" ");
+      return this.classList;
     } else if (a != null) {
-      return this.className = a;
+      this.className = a;
+      return this.classList;
     }
   };
 
@@ -132,39 +125,22 @@
   };
 
   ele.prototype.addClass = function(a) {
-    if (hasClassList) {
-      return this.classList.add(a);
-    } else {
-      if (!this.hasClass(a)) {
-        this.className += " " + a;
-      }
-      return this.className.split(" ");
-    }
+    this.classList.add(a);
+    return this.classList;
   };
 
   ele.prototype.removeClass = function(a) {
-    if (hasClassList) {
-      return this.classList.remove(a);
-    } else {
-      this.className = this.className.replace(RegExp("^" + a + "$|" + a + " | " + a), "", "g");
-      return this.className;
-    }
+    this.classList.remove(a);
+    return this.classList;
   };
 
   ele.prototype.toggleClass = function(a) {
-    if (this.hasClass(a)) {
-      return this.removeClass(a);
-    } else {
-      return this.addClass(a);
-    }
+    this.classList.toggle(a);
+    return this.classList;
   };
 
   ele.prototype.hasClass = function(a) {
-    if (hasClassList) {
-      return this.classList.contains(a);
-    } else {
-      return this.className.search(RegExp("^" + a + "$|" + a + " | " + a)) !== -1;
-    }
+    return this.classList.contains(a);
   };
 
 }).call(this);
@@ -205,13 +181,13 @@
    */
 
   exports.shortQuery = (function() {
-    var class1;
+    var ctor;
 
     function shortQuery() {
-      return class1.apply(this, arguments);
+      return ctor.apply(this, arguments);
     }
 
-    class1 = d.querySelectorAll.bind(d);
+    ctor = d.querySelectorAll.bind(d);
 
     shortQuery.id = d.getElementById.bind(d);
 
