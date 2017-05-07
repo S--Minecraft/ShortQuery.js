@@ -1,5 +1,5 @@
 /*!
- * ShortQuery.js v0.1.7-chrome  MIT License
+ * ShortQuery.js v0.1.8-chrome  MIT License
  * (C) 2015 S <https://github.com/S--Minecraft>
  */
 /*
@@ -62,6 +62,8 @@
   ele.prototype.$ = ele.prototype.query;
 
   ele.prototype.$$ = ele.prototype.queryAll;
+
+  ele.prototype.append = ele.prototype.appendChild;
 
   ele.prototype.addLast = ele.prototype.appendChild;
 
