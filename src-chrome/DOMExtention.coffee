@@ -26,6 +26,15 @@ ele::remove = ->
 ele::removeChildren = ->
   @textContent = null
   return @
+# get/set family
+ele::parent = ->
+  return @parentElement
+ele::child = ->
+  return @children
+ele::prev = ->
+  return @previousElementSibling
+ele::next = ->
+  return @nextElementSibling
 # get/set node
 ele::getAttr = ele::getAttribute
 ele::setAttr = ele::setAttribute
