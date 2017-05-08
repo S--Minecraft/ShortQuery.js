@@ -23,3 +23,6 @@ class exports.shortQuery
   @create: d.createElement.bind(d)
 exports.$$ = shortQuery
 exports.$__ = shortQuery.create
+
+if !HTMLCollection.prototype[Symbol.iterator]?
+  HTMLCollection.prototype[Symbol.iterator] = Array.prototype.values

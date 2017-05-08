@@ -29,3 +29,6 @@ class exports.shortQuery
     return
 exports.$$ = shortQuery
 exports.$__ = shortQuery.create
+
+if !HTMLCollection.prototype[Symbol.iterator]?
+  HTMLCollection.prototype[Symbol.iterator] = Array.prototype.values
