@@ -1,5 +1,5 @@
 /*!
- * ShortQuery.js v0.1.8-chrome  MIT License
+ * ShortQuery.js v0.1.9-chrome  MIT License
  * (C) 2015 S <https://github.com/S--Minecraft>
  */
 /*
@@ -45,7 +45,7 @@
 (function() {
   var ele;
 
-  ele = HTMLElement;
+  ele = Element;
 
   ele.prototype.childClass = ele.prototype.getElementsByClassName;
 
@@ -86,6 +86,22 @@
   ele.prototype.removeChildren = function() {
     this.textContent = null;
     return this;
+  };
+
+  ele.prototype.parent = function() {
+    return this.parentElement;
+  };
+
+  ele.prototype.child = function() {
+    return this.children;
+  };
+
+  ele.prototype.prev = function() {
+    return this.previousElementSibling;
+  };
+
+  ele.prototype.next = function() {
+    return this.nextElementSibling;
   };
 
   ele.prototype.getAttr = ele.prototype.getAttribute;
