@@ -1,7 +1,7 @@
 ###
   DOM Extention
 ###
-ele = HTMLElement
+ele = Element
 
 # child node search
 ele::childClass = ele::getElementsByClassName
