@@ -1,5 +1,5 @@
 /*!
- * ShortQuery.js v0.1.9-chrome  MIT License
+ * ShortQuery.js v0.2.0-chrome  MIT License
  * (C) 2015 S <https://github.com/S--Minecraft>
  */
 /*
@@ -229,5 +229,9 @@
   exports.$$ = shortQuery;
 
   exports.$__ = shortQuery.create;
+
+  if (HTMLCollection.prototype[Symbol.iterator] == null) {
+    HTMLCollection.prototype[Symbol.iterator] = Array.prototype.values;
+  }
 
 }).call(this);
