@@ -1,5 +1,5 @@
 /*!
- * ShortQuery.js v0.2.0-chrome  MIT License
+ * ShortQuery.js v0.2.1-chrome  MIT License
  * (C) 2015 S <https://github.com/S--Minecraft>
  */
 /*
@@ -63,8 +63,6 @@
 
   ele.prototype.$$ = ele.prototype.queryAll;
 
-  ele.prototype.append = ele.prototype.appendChild;
-
   ele.prototype.addLast = ele.prototype.appendChild;
 
   ele.prototype.addFirst = function(a) {
@@ -77,10 +75,6 @@
 
   ele.prototype.addAfter = function(a) {
     return this.parentNode.insertBefore(a, this.nextSibling);
-  };
-
-  ele.prototype.remove = function() {
-    return this.parentNode.removeChild(this);
   };
 
   ele.prototype.removeChildren = function() {
