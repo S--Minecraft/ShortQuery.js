@@ -13,7 +13,6 @@ ele::T = ele::childTag
 ele::$ = ele::query
 ele::$$ = ele::queryAll
 # add/remove node
-ele::append = ele::appendChild
 ele::addLast = ele::appendChild
 ele::addFirst = (a) ->
   return @insertBefore(a, @firstChild)
