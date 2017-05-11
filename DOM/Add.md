@@ -1,5 +1,5 @@
 ## DOM追加/削除
-### `DOM.addLast(DOM1)` `DOM.append(DOM1)`
+### `DOM.addLast(DOM1)`
 `DOM.appendChild(DOM1)`のショートハンドです  
 そのDOMの子の最後にDOM1を追加します
 
@@ -13,7 +13,8 @@
 そのDOMの後にDOM1を追加します
 
 ### `DOM.remove()`
-そのDOMを削除します
+そのDOMを削除します  
+`DOM.remove()` が利用できる環境ではそっちが実行されます
 
 ### `DOM.removeChildren()`
 そのDOMの子をすべて削除します  
