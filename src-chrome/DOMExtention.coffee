@@ -20,8 +20,6 @@ ele::addBefore = (a) ->
   return @parentNode.insertBefore(a, @)
 ele::addAfter = (a) ->
   return @parentNode.insertBefore(a, @nextSibling)
-ele::remove = ->
-  return @parentNode.removeChild(@)
 ele::removeChildren = ->
   @textContent = null
   return @
