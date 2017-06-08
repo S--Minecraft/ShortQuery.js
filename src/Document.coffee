@@ -15,3 +15,5 @@ d::$ = d::query
 d::$$ = d::queryAll
 d::create = d::createElement
 d::$__ = d::create
+d::createFragment = d::createDocumentFragment
+d::$_F = d::createFragment
