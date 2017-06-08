@@ -21,8 +21,10 @@ class exports.shortQuery
   @$$: @queryAll
   # create node
   @create: d.createElement.bind(d)
+  @createFragment: d.createDocumentFragment.bind(d)
 exports.$$ = shortQuery
 exports.$__ = shortQuery.create
+exports.$_F = shortQuery.createFragment
 
 if !HTMLCollection.prototype[Symbol.iterator]?
   HTMLCollection.prototype[Symbol.iterator] = Array.prototype.values
