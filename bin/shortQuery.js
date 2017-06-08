@@ -43,6 +43,45 @@
  */
 
 (function() {
+  var d;
+
+  d = DocumentFragment;
+
+  d.prototype.id = d.prototype.getElementById;
+
+  d.prototype.query = d.prototype.querySelector;
+
+  d.prototype.queryAll = d.prototype.querySelectorAll;
+
+  d.prototype.I = d.prototype.id;
+
+  d.prototype.$ = d.prototype.query;
+
+  d.prototype.$$ = d.prototype.queryAll;
+
+  d.prototype.addLast = d.prototype.appendChild;
+
+  d.prototype.addFirst = function(a) {
+    return this.insertBefore(a, this.firstChild);
+  };
+
+  d.prototype.removeChildren = function() {
+    this.textContent = null;
+    return this;
+  };
+
+  d.prototype.child = function() {
+    return this.children;
+  };
+
+}).call(this);
+
+
+/*
+  DOM Extention
+ */
+
+(function() {
   var base, ele;
 
   ele = Element;
@@ -229,6 +268,8 @@
 
     shortQuery.create = d.createElement.bind(d);
 
+    shortQuery.createFragment = d.createDocumentFragment.bind(d);
+
     shortQuery.each = function(a, cb) {
       var b, i, j, len;
       a = Array.apply(null, a);
@@ -245,6 +286,8 @@
   exports.$$ = shortQuery;
 
   exports.$__ = shortQuery.create;
+
+  exports.$_F = shortQuery.createFragment;
 
   if (HTMLCollection.prototype[Symbol.iterator] == null) {
     HTMLCollection.prototype[Symbol.iterator] = Array.prototype.values;
