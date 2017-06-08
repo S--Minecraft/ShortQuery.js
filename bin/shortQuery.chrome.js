@@ -1,5 +1,5 @@
 /*!
- * ShortQuery.js v0.2.1-chrome  MIT License
+ * ShortQuery.js v0.3.1-chrome  MIT License
  * (C) 2015 S <https://github.com/S--Minecraft>
  */
 /*
@@ -34,6 +34,10 @@
   d.prototype.create = d.prototype.createElement;
 
   d.prototype.$__ = d.prototype.create;
+
+  d.prototype.createFragment = d.prototype.createDocumentFragment;
+
+  d.prototype.$_F = d.prototype.createFragment;
 
 }).call(this);
 
