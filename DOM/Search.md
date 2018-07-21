@@ -1,16 +1,16 @@
 ## DOM検索
-### `DOM.childClass()` `DOM.C()`
+### `DOM.childClass(`*className*`)` `DOM.C(`*className*`)`
 `DOM.getElementsByClassName()`のショートハンドです  
 class名からそのDOMの子のDOMを取得します  
 
-### `DOM.childTag()` `DOM.T()`
+### `DOM.childTag(`*tagName*`)` `DOM.T(`*tagName*`)`
 `DOM.getElementsByTagName()`のショートハンドです  
 タグ名からそのDOMの子のDOMを取得します
 
-### `DOM.query()` `DOM.$()`
+### `DOM.query(`*cssSelector*`)` `DOM.$(`*cssSelector*`)`
 `DOM.querySelector()`のショートハンドです  
 CSSと同じクエリからそのDOMの子のDOMを1つ取得します
 
-### `DOM.queryAll()` `DOM.$$()`
+### `DOM.queryAll(`*cssSelector*`)` `DOM.$$(`*cssSelector*`)`
 `DOM.querySelectorAll()`のショートハンドです  
 CSSと同じクエリからそのDOMの子のDOMを取得します

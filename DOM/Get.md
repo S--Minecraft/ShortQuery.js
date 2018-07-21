@@ -1,46 +1,46 @@
 ## DOM取得
-### `$$(query)`
-`document.querySelectorAll(query)`のショートハンドです  
+### `$$(`*cssSelector*`)`
+`document.querySelectorAll(`*cssSelector*`)`のショートハンドです  
 CSSと同じクエリでDOMを取得します
 
-### `$$.id(id)` `$$.I(id)`
-`document.getElementById(id)`のショートハンドです  
+### `$$.id(`*idName*`)` `$$.I(`*idName*`)`
+`document.getElementById(`*idName*`)`のショートハンドです  
 id名でDOMを取得します
 
-### `$$.class(class)` `$$.C(class)`
-`document.getElementsByClassName(class)`のショートハンドです  
+### `$$.class(`*ClassName*`)` `$$.C(`*className*`)`
+`document.getElementsByClassName(`*ClassName*`)`のショートハンドです  
 class名でDOMを取得します  
 
-### `$$.tag(tag)` `$$.T(tag)`
-`document.getElementsByTagName(tag)`のショートハンドです  
+### `$$.tag(`*tagName*`)` `$$.T(`*tagName*`)`
+`document.getElementsByTagName(`*tagName*`)`のショートハンドです  
 タグ名でDOMを取得します
 
-### `$$.query(query)` `$$.$(query)`
-`document.querySelector(query)`のショートハンドです  
+### `$$.query(`*cssSelector*`)` `$$.$(`*cssSelector*`)`
+`document.querySelector(`*cssSelector*`)`のショートハンドです  
 CSSと同じクエリでDOMを一つ取得します
 
-### `$$.queryAll(query)` `$$.$$(query)`
-`document.querySelectorAll(query)`のショートハンドです  
+### `$$.queryAll(`*cssSelector*`)` `$$.$$(`*cssSelector*`)`
+`document.querySelectorAll(`*cssSelector*`)`のショートハンドです  
 CSSと同じクエリでDOMを取得します
 
-### `DOM.id(id)` `DOM.I(id)`
-`DOM.getElementById(id)`のショートハンドです  
+### `DOM.id(`*idName*`)` `DOM.I(`*idName*`)`
+`DOM.getElementById(`*idName*`)`のショートハンドです  
 id名でDOMを取得します
 
-### `DOM.class(class)` `DOM.C(class)`
-`DOM.getElementsByClassName(class)`のショートハンドです  
+### `DOM.class(`*ClassName*`)` `DOM.C(`*ClassName*`)`
+`DOM.getElementsByClassName(`*ClassName*`)`のショートハンドです  
 class名でDOMを取得します  
 
-### `DOM.tag(tag)` `DOM.T(tag)`
-`DOM.getElementsByTagName(tag)`のショートハンドです  
+### `DOM.tag(`*tagName*`)` `DOM.T(`*tagName*`)`
+`DOM.getElementsByTagName(`*tagName*`)`のショートハンドです  
 タグ名でDOMを取得します
 
-### `DOM.query(query)` `DOM.$(query)`
-`DOM.querySelector(query)`のショートハンドです  
+### `DOM.query(`*cssSelector*`)` `DOM.$(`*cssSelector*`)`
+`DOM.querySelector(`*cssSelector*`)`のショートハンドです  
 CSSと同じクエリでDOMを一つ取得します
 
-### `DOM.queryAll(query)` `DOM.$$(query)`
-`DOM.querySelectorAll(query)`のショートハンドです  
+### `DOM.queryAll(`*cssSelector*`)` `DOM.$$(`*cssSelector*`)`
+`DOM.querySelectorAll(`*cssSelector*`)`のショートハンドです  
 CSSと同じクエリでDOMを取得します
 
 ### `DOM.parent()`
@@ -54,3 +54,9 @@ CSSと同じクエリでDOMを取得します
 
 ### `DOM.next()`
 `DOM.nextElementSibling`のショートハンドです  
+
+### `DOM.first()`
+`DOM.firstElementChild`のショートハンドです  
+
+### `DOM.last()`
+`DOM.lastElementChild`のショートハンドです  

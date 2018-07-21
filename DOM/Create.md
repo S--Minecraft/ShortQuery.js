@@ -1,6 +1,6 @@
 ## DOM作成
-### `$$.create(tag)` `$__(tag)`
-`document.createElement(tag)`のショートハンドです  
+### `$$.create(`*tagName*`)` `$__(`*tagName*`)`
+`document.createElement(`*tagName*`)`のショートハンドです  
 DOMを作成します
 
 ### `$$.createFragment()` `$_F()`
