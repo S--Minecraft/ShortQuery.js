@@ -59,6 +59,10 @@ ele::prev = ->
   return @previousElementSibling
 ele::next = ->
   return @nextElementSibling
+ele::first = ->
+  return @firstElementChild
+ele::last = ->
+  return @lastElementChild
 # get/set node
 ele::getAttr = ele::getAttribute
 ele::setAttr = ele::setAttribute

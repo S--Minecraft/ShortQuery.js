@@ -19,3 +19,7 @@ d::removeChildren = ->
 # get/set family
 d::child = ->
   return @children
+d::first = ->
+  return @firstElementChild
+d::last = ->
+  return @lastElementChild
