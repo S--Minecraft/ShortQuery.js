@@ -11,9 +11,8 @@ d::I = d::id
 d::$ = d::query
 d::$$ = d::queryAll
 # add/remove node
-d::addLast = d::appendChild
-d::addFirst = (a) ->
-  return @insertBefore(a, @firstChild)
+d::addLast = d::append
+d::addFirst = d::prepend
 d::removeChildren = ->
   @textContent = null
   return @

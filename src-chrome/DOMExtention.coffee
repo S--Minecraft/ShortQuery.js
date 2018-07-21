@@ -13,13 +13,10 @@ ele::T = ele::childTag
 ele::$ = ele::query
 ele::$$ = ele::queryAll
 # add/remove node
-ele::addLast = ele::appendChild
-ele::addFirst = (a) ->
-  return @insertBefore(a, @firstChild)
-ele::addBefore = (a) ->
-  return @parentNode.insertBefore(a, @)
-ele::addAfter = (a) ->
-  return @parentNode.insertBefore(a, @nextSibling)
+ele::addLast = ele::append
+ele::addFirst = ele::prepend
+ele::addBefore = ele::before
+ele::addAfter = ele::after
 ele::removeChildren = ->
   @textContent = null
   return @

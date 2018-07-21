@@ -13,13 +13,34 @@ ele::T = ele::childTag
 ele::$ = ele::query
 ele::$$ = ele::queryAll
 # add/remove node
-ele::addLast = ele::appendChild
-ele::addFirst = (a) ->
-  return @insertBefore(a, @firstChild)
-ele::addBefore = (a) ->
-  return @parentNode.insertBefore(a, @)
-ele::addAfter = (a) ->
-  return @parentNode.insertBefore(a, @nextSibling)
+if ele::append
+  ele::addLast = ele::append
+else
+  ele::addLast = (es...) ->
+    for e in es
+      @appendChild(e)
+    return
+if ele::prepend
+  ele::addFirst = ele::prepend
+else
+  ele::addFirst = (es...) ->
+    for e in es by -1
+      @insertBefore(e, @firstChild)
+    return
+if ele::before
+  ele::addBefore = ele::before
+else
+  ele::addBefore = (es...) ->
+    for e in es by -1
+      @parentNode.insertBefore(e, @)
+    return
+if ele::after
+  ele::addAfter = ele::after
+else
+  ele::addAfter = (es...) ->
+    for e in es
+      @parentNode.insertBefore(e, @nextSibling)
+    return
 ele::remove ?= ->
   return @parentNode.removeChild(@)
 ele::removeChildren = ->
