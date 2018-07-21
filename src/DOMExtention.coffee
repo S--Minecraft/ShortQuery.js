@@ -73,23 +73,18 @@ ele::attr = (a, b) ->
   return if b? then @setAttr(a, b) else @getAttr(a)
 ele::getClass = ->
   return @classList
-ele::setClass = (a) ->
-  if Array.isArray(a)
-    @className = a.join(" ")
-    return @classList
-  else if a?
-    @className = a
-    return @classList
-  return
+ele::setClass = (a...) ->
+  @className = a.join(" ")
+  return @
 ele::class = (a) ->
   return if a? then @setClass(a) else @getClass()
 # extention
-ele::addClass = (a) ->
-  @classList.add(a)
-  return @classList
-ele::removeClass = (a) ->
-  @classList.remove(a)
-  return @classList
+ele::addClass = (a...) ->
+  @classList.add(a...)
+  return @
+ele::removeClass = (a...) ->
+  @classList.remove(a...)
+  return @
 ele::toggleClass = (a) ->
   @classList.toggle(a)
   return @classList
