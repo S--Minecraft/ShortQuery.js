@@ -68,6 +68,7 @@ ele::getAttr = ele::getAttribute
 ele::setAttr = ele::setAttribute
 ele::removeAttr = ele::removeAttribute
 ele::rmvAttr = ele::removeAttr
+ele::hasAttr = ele::hasAttribute
 ele::attr = (a, b) ->
   return if b? then @setAttr(a, b) else @getAttr(a)
 ele::getClass = ->
