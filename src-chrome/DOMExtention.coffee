@@ -55,6 +55,16 @@ ele::addClass = (a...) ->
 ele::removeClass = (a...) ->
   @classList.remove(a...)
   return @
+if DOMTokenList::replace?
+  ele::replaceClass = (a, b) ->
+    @classList.replace(a, b)
+    return @
+else
+  ele::replaceClass = (a, b) ->
+    if @classList.has(a)
+      @classList.remove(a)
+      @classList.add(b)
+    return @
 ele::toggleClass = (a) ->
   @classList.toggle(a)
   return @classList
