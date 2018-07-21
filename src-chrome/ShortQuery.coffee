@@ -26,5 +26,5 @@ exports.$$ = shortQuery
 exports.$__ = shortQuery.create
 exports.$_F = shortQuery.createFragment
 
-if !HTMLCollection.prototype[Symbol.iterator]?
+unless HTMLCollection.prototype[Symbol.iterator]?
   HTMLCollection.prototype[Symbol.iterator] = Array.prototype.values
