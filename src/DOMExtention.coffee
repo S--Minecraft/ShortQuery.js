@@ -46,6 +46,10 @@ ele::remove ?= ->
 ele::removeChildren = ->
   @textContent = null
   return @
+if ele::replaceWith?
+  ele::replaceWith = (a) ->
+    @parentNode.replaceChild(a, @)
+    return
 # get/set family
 ele::parent = ->
   return @parentElement
