@@ -21,11 +21,11 @@ classを取得します
 ### `DOM.setClass(`*classString*`)` `DOM.class(`*classString*`)`
 配列または文字列(一つの場合など)でclassを設定します
 
-### `DOM.addClass(`*className*`)`
-classを追加します  
+### `DOM.addClass(`*className*`, ..)`
+classをすべて追加します  
 
-### `DOM.removeClass(`*className*`)`
-classを削除します  
+### `DOM.removeClass(`*className*`, ..)`
+classをすべて削除します  
 
 ### `DOM.removeClass(`*className1*`, `*className2*`)`
 class1をclass2で置き換えます  
