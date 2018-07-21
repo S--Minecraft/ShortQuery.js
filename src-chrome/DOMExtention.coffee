@@ -67,6 +67,6 @@ else
     return @
 ele::toggleClass = (a) ->
   @classList.toggle(a)
-  return @classList
+  return @
 ele::hasClass = (a) ->
   return @classList.contains(a)
