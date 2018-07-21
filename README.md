@@ -4,8 +4,8 @@ jsをほぼバニラで使用するためのただのショートハンドの集
 Now only 3306Bytes!  
   
 ## 対応ブラウザ
-IE11～  
-Chrome49～  
+Edge12～  
+Chrome49～(Chrome版はChrome54～)  
   
 ## ファイル
 `shortQuery.js` 本体  

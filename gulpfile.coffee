@@ -6,7 +6,7 @@ plumber = require "gulp-plumber"
 concat = require "gulp-concat"
 rename = require "gulp-rename"
 coffee = require "gulp-coffee"
-uglify = require "gulp-uglify"
+minify = require "gulp-babel-minify"
 
 packageJson = require "./package.json"
 banner =
@@ -15,6 +15,7 @@ banner =
    * <%= packageJson.name %> v<%= packageJson.version %>  <%= packageJson.license %> License
    * (C) 2015 <%= packageJson.authorName %>
    */
+
   """
 bannerChrome =
   """
@@ -22,6 +23,7 @@ bannerChrome =
    * <%= packageJson.name %> v<%= packageJson.version %>-chrome  <%= packageJson.license %> License
    * (C) 2015 <%= packageJson.authorName %>
    */
+
   """
 src = "./src"
 srcchrome = "./src-chrome"
@@ -29,24 +31,26 @@ bin = "./bin"
 
 gulp.task "coffee", ->
   return gulp.src("#{src}/**/*.coffee")
-    .pipe(plumber({errorHandler: notify.onError("Error: <%= error.toString() %>")}))
+    .pipe(plumber(errorHandler: notify.onError("Error: <%= error.toString() %>")))
     .pipe(coffee())
     .pipe(concat("shortQuery.js"))
-    .pipe(header(banner, {packageJson: packageJson}))
+    .pipe(header(banner, packageJson: packageJson))
     .pipe(gulp.dest(bin))
-    .pipe(uglify({preserveComments:"license"}))
-    .pipe(rename({extname: ".min.js"}))
+    .pipe(minify())
+    .pipe(header(banner, packageJson: packageJson))
+    .pipe(rename(extname: ".min.js"))
     .pipe(gulp.dest(bin))
 
 gulp.task "chrome-coffee", ->
   return gulp.src("#{srcchrome}/**/*.coffee")
-    .pipe(plumber({errorHandler: notify.onError("Error: <%= error.toString() %>")}))
+    .pipe(plumber(errorHandler: notify.onError("Error: <%= error.toString() %>")))
     .pipe(coffee())
     .pipe(concat("shortQuery.chrome.js"))
-    .pipe(header(bannerChrome, {packageJson: packageJson}))
+    .pipe(header(bannerChrome, packageJson: packageJson))
     .pipe(gulp.dest(bin))
-    .pipe(uglify({preserveComments:"license"}))
-    .pipe(rename({extname: ".min.js"}))
+    .pipe(minify())
+    .pipe(header(bannerChrome, packageJson: packageJson))
+    .pipe(rename(extname: ".min.js"))
     .pipe(gulp.dest(bin))
 
 gulp.task "default", ["compile"]
