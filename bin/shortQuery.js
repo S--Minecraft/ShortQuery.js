@@ -317,72 +317,62 @@
 }).call(this);
 
 (function() {
-  var d, exports;
+
+  /*
+    shortQuery
+  */
+  var d, exports, sq;
 
   exports = this;
 
   // shorthands
   d = document;
 
-  exports.shortQuery = (function() {
-    var ctor;
+  sq = d.querySelectorAll.bind(d);
 
-    /*
-      shortQuery
-    */
-    class shortQuery {
-      constructor() {
-        return ctor.apply(this, arguments);
-      }
+  // search node
+  sq.id = d.getElementById.bind(d);
 
-      // each
-      static each(a, cb) {
-        var b, i, j, len;
-        a = Array.apply(null, a);
-        for (i = j = 0, len = a.length; j < len; i = ++j) {
-          b = a[i];
-          cb(b, i);
-        }
-      }
+  sq.class = d.getElementsByClassName.bind(d);
 
-    };
+  sq.tag = d.getElementsByTagName.bind(d);
 
-    ctor = d.querySelectorAll.bind(d);
+  sq.query = d.querySelector.bind(d);
 
-    shortQuery.id = d.getElementById.bind(d);
+  sq.queryAll = d.querySelectorAll.bind(d);
 
-    shortQuery.class = d.getElementsByClassName.bind(d);
+  sq.I = sq.id;
 
-    shortQuery.tag = d.getElementsByTagName.bind(d);
+  sq.C = sq.class;
 
-    shortQuery.query = d.querySelector.bind(d);
+  sq.T = sq.tag;
 
-    shortQuery.queryAll = d.querySelectorAll.bind(d);
+  sq.$ = sq.query;
 
-    shortQuery.I = shortQuery.id;
+  sq.$$ = sq.queryAll;
 
-    shortQuery.C = shortQuery.class;
+  // create node
+  sq.create = d.createElement.bind(d);
 
-    shortQuery.T = shortQuery.tag;
+  sq.createFragment = d.createDocumentFragment.bind(d);
 
-    shortQuery.$ = shortQuery.query;
+  // each
+  sq.each = function(a, cb) {
+    var b, i, j, len;
+    a = Array.apply(null, a);
+    for (i = j = 0, len = a.length; j < len; i = ++j) {
+      b = a[i];
+      cb(b, i);
+    }
+  };
 
-    shortQuery.$$ = shortQuery.queryAll;
+  exports.shortQuery = sq;
 
-    // create node
-    shortQuery.create = d.createElement.bind(d);
+  exports.$$ = sq;
 
-    shortQuery.createFragment = d.createDocumentFragment.bind(d);
+  exports.$__ = sq.create;
 
-    return shortQuery;
-
-  }).call(this);
-
-  exports.$$ = shortQuery;
-
-  exports.$__ = shortQuery.create;
-
-  exports.$_F = shortQuery.createFragment;
+  exports.$_F = sq.createFragment;
 
   if (HTMLCollection.prototype[Symbol.iterator] == null) {
     HTMLCollection.prototype[Symbol.iterator] = Array.prototype.values;
