@@ -1,5 +1,5 @@
 /*!
- * ShortQuery.js v1.0.0-chrome  MIT License
+ * ShortQuery.js v1.0.2-chrome  MIT License
  * (C) 2015 S <https://github.com/S--Minecraft>
  */
 (function() {
