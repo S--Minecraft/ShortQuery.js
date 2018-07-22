@@ -19,10 +19,10 @@ sq.C = sq.class
 sq.T = sq.tag
 sq.$ = sq.query
 sq.$$ = sq.queryAll
-  # create node
+# create node
 sq.create = d.createElement.bind(d)
 sq.createFragment = d.createDocumentFragment.bind(d)
-  # each
+# each
 sq.each = (a, cb) ->
     a = Array.apply(null, a)
     for b, i in a
