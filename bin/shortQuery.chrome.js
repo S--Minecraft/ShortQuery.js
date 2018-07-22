@@ -1,5 +1,5 @@
 /*!
- * ShortQuery.js v1.0.2-chrome  MIT License
+ * ShortQuery.js v1.0.3-chrome  MIT License
  * (C) 2015 S <https://github.com/S--Minecraft>
  */
 (function() {
@@ -238,62 +238,52 @@
 }).call(this);
 
 (function() {
-  var d, exports;
+
+  /*
+    shortQuery
+  */
+  var d, exports, sq;
 
   exports = this;
 
   // shorthands
   d = document;
 
-  exports.shortQuery = (function() {
-    var ctor;
+  sq = d.querySelectorAll.bind(d);
 
-    /*
-      shortQuery
-    */
-    class shortQuery {
-      constructor() {
-        return ctor.apply(this, arguments);
-      }
+  // search node
+  sq.id = d.getElementById.bind(d);
 
-    };
+  sq.class = d.getElementsByClassName.bind(d);
 
-    ctor = d.querySelectorAll.bind(d);
+  sq.tag = d.getElementsByTagName.bind(d);
 
-    shortQuery.id = d.getElementById.bind(d);
+  sq.query = d.querySelector.bind(d);
 
-    shortQuery.class = d.getElementsByClassName.bind(d);
+  sq.queryAll = d.querySelectorAll.bind(d);
 
-    shortQuery.tag = d.getElementsByTagName.bind(d);
+  sq.I = sq.id;
 
-    shortQuery.query = d.querySelector.bind(d);
+  sq.C = sq.class;
 
-    shortQuery.queryAll = d.querySelectorAll.bind(d);
+  sq.T = sq.tag;
 
-    shortQuery.I = shortQuery.id;
+  sq.$ = sq.query;
 
-    shortQuery.C = shortQuery.class;
+  sq.$$ = sq.queryAll;
 
-    shortQuery.T = shortQuery.tag;
+  // create node
+  sq.create = d.createElement.bind(d);
 
-    shortQuery.$ = shortQuery.query;
+  sq.createFragment = d.createDocumentFragment.bind(d);
 
-    shortQuery.$$ = shortQuery.queryAll;
+  exports.shortQuery = sq;
 
-    // create node
-    shortQuery.create = d.createElement.bind(d);
+  exports.$$ = sq;
 
-    shortQuery.createFragment = d.createDocumentFragment.bind(d);
+  exports.$__ = sq.create;
 
-    return shortQuery;
-
-  }).call(this);
-
-  exports.$$ = shortQuery;
-
-  exports.$__ = shortQuery.create;
-
-  exports.$_F = shortQuery.createFragment;
+  exports.$_F = sq.createFragment;
 
   if (HTMLCollection.prototype[Symbol.iterator] == null) {
     HTMLCollection.prototype[Symbol.iterator] = Array.prototype.values;
