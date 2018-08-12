@@ -1,5 +1,5 @@
 /*!
- * ShortQuery.js v1.0.3  MIT License
+ * ShortQuery.js v1.1.0  MIT License
  * (C) 2015 S <https://github.com/S--Minecraft>
  */
 (function() {
@@ -305,12 +305,14 @@
     e = EventTarget;
     e.prototype.on = e.prototype.addEventListener;
     e.prototype.off = e.prototype.removeEventListener;
+    e.prototype.emit = e.prototype.dispatchEvent;
   } else {
     eventTarget = [Window, Document, Element, XMLHttpRequest];
     for (i = 0, len = eventTarget.length; i < len; i++) {
       e = eventTarget[i];
       e.prototype.on = e.prototype.addEventListener;
       e.prototype.off = e.prototype.removeEventListener;
+      e.prototype.emit = e.prototype.dispatchEvent;
     }
   }
 

@@ -1,5 +1,5 @@
 /*!
- * ShortQuery.js v1.0.3-chrome  MIT License
+ * ShortQuery.js v1.1.0-chrome  MIT License
  * (C) 2015 S <https://github.com/S--Minecraft>
  */
 (function() {
@@ -234,6 +234,8 @@
   e.prototype.on = e.prototype.addEventListener;
 
   e.prototype.off = e.prototype.removeEventListener;
+
+  e.prototype.emit = e.prototype.dispatchEvent;
 
 }).call(this);
 
